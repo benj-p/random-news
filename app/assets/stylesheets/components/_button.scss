@@ -1,0 +1,18 @@
+.button-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $light-yellow;
+  border: 2px solid $black;
+  border-radius: 16px;
+  padding: 16px 32px;
+  width: 100%;
+  
+  font-weight: 700;
+  font-size: 1.125rem;
+
+  img {
+    width: 42px;
+    height: 42px;
+  }
+}
