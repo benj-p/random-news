@@ -6,13 +6,13 @@
   </div>
 
   <div class="news-buttons">
-    <div class="button-primary" data-news-target="readMoreButton">
+    <%= link_to '#', class: 'button-primary', target: '_blank', data: {news_target: 'readMoreButton'} do %>
       <%= image_tag 'icons/view_more.png' %>
       Read more
-    </div>
-    <div class="button-primary" data-action="click->news#refresh" data-news-target="refreshButton">
+    <% end %>
+    <%= link_to '', class: 'button-primary', target: '_blank', data: {news_target: 'refreshButton', action: 'click->news#refresh'} do %>
       <%= image_tag 'icons/shuffle.png' %>
       Anything else?
-    </div>
+    <% end %>
   </div>
 </div>
