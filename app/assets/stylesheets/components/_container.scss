@@ -1,5 +1,16 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .main-container {
   padding: 32px 24px 16px 24px;
+  max-width: 640px;
+  flex: 1 0 auto;
 }
 
 .news-container {
