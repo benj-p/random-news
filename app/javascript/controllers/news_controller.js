@@ -1,12 +1,17 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "newsContainer", "readMoreButton", "articleTitle", "articleBody" ]
+  static targets = [ "newsContainer", "readMoreButton", "articleTitle", "articleBody", "loader" ]
   
   refresh(event) {
     event.preventDefault()
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    this.getArticle();
+    this.loaderTarget.classList.remove('inactive')
+    this.articleTitleTarget.innerHTML = null
+    this.articleBodyTarget.innerHTML = null  
+    setTimeout(() => {  
+      this.getArticle();
+      this.loaderTarget.classList.add('inactive') }, 1200);
   }
 
   updateContent(article) {

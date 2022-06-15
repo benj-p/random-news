@@ -4,6 +4,16 @@
   <div class="news-container" data-news-target="newsContainer" data-id=<%= @article.id %>>
     <h2 class="article-title" data-news-target="articleTitle"><%= @article.title %></h2>
     <div data-news-target="articleBody"><%= @article.short_body.html_safe %></div>
+
+    <div class="loader inactive" data-news-target="loader">
+      <div class="loader-dots">
+        <div class="spinner-grow text-warning" role="status"></div>
+        <div class="spinner-grow text-warning" role="status"></div>
+        <div class="spinner-grow text-warning" role="status"></div>
+      </div>
+      <span>Looking for the best articles out there!</span>
+      <span class="sr-only">Loading...</span>
+    </div>
   </div>
 
   <div class="news-buttons">
@@ -17,6 +27,3 @@
     <% end %>
   </div>
 </div>
-
-<%# Button hover / click %>
-<%# Loader ? %>
