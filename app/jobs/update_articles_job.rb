@@ -1,7 +1,7 @@
 class UpdateArticlesJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform
     TheConversation.new.update_db
   end
 end
