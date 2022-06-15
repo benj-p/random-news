@@ -15,8 +15,8 @@ body {
 
 .news-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 24px;
   background: $light-yellow;
   border: 2px solid $black;

@@ -1,12 +1,13 @@
 <h1 class="home-header">What's new today?</h1>
 
 <div data-controller="news">
-  <div class="news-container" data-news-target="newsContainer">
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..."
+  <div class="news-container" data-news-target="newsContainer" data-id=<%= @article.id %>>
+    <h2 class="article-title" data-news-target="articleTitle"><%= @article.title %></h2>
+    <div data-news-target="articleBody"><%= @article.short_body.html_safe %></div>
   </div>
 
   <div class="news-buttons">
-    <%= link_to '#', class: 'button-primary', target: '_blank', data: {news_target: 'readMoreButton'} do %>
+    <%= link_to @article.url, class: 'button-primary', target: '_blank', data: {news_target: 'readMoreButton'} do %>
       <%= image_tag 'icons/view_more.png' %>
       Read more
     <% end %>
