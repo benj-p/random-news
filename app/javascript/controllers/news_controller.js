@@ -9,9 +9,10 @@ export default class extends Controller {
     this.loaderTarget.classList.remove('inactive')
     this.articleTitleTarget.innerHTML = null
     this.articleBodyTarget.innerHTML = null  
+    const timerDuration = Math.floor((Math.random() * 1000) + 200);
     setTimeout(() => {  
       this.getArticle();
-      this.loaderTarget.classList.add('inactive') }, 1200);
+      this.loaderTarget.classList.add('inactive') }, timerDuration);
   }
 
   updateContent(article) {
