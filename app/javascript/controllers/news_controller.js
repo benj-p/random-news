@@ -5,6 +5,7 @@ export default class extends Controller {
   
   refresh(event) {
     event.preventDefault()
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     this.getArticle();
   }
 
