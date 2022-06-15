@@ -1,0 +1,12 @@
+:concurrency: 3
+:timeout: 60
+:verbose: true
+:queues:
+  - default
+  - mailers
+  - active_storage_analysis
+  - active_storage_purge
+production:
+  :schedule:
+    update_articles_job:
+      cron: "0 1 * * *" # Runs every day at 01:00
