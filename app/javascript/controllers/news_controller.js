@@ -23,7 +23,7 @@ export default class extends Controller {
   }
 
   getArticle() {
-    fetch('/articles')
+    fetch('/articles?age_hours=24')
     .then((response) => response.json())
     .then((data) => {
         const article = data["articles"][data["articles"].length * Math.random() | 0]
