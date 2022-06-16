@@ -9,4 +9,4 @@
 production:
   :schedule:
     UpdateArticlesJob:
-      cron: "0 1 * * *" # Runs every day at 01:00
+      cron: "*/30  * * * *" # Every 30 minutes
