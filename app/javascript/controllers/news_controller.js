@@ -10,7 +10,9 @@ export default class extends Controller {
     window.scrollTo({ top: 0, behavior: 'smooth' })
     this.loaderTarget.classList.remove('inactive')
     this.articleTitleTarget.innerHTML = null
-    this.articleBodyTarget.innerHTML = null  
+    this.articleBodyTarget.innerHTML = null 
+    this.readMoreButtonTarget.style.display = "none";
+    this.refreshButtonTarget.style.display = "none"; 
 
     let searchParams = this.setSearchParams()
     const data = await fetch(`/articles?${searchParams}`).then((response) => response.json())
@@ -30,6 +32,8 @@ export default class extends Controller {
       setTimeout(() => {
         this.loaderTarget.classList.add('inactive')
         this.updateContent(article)
+        this.readMoreButtonTarget.style.display = "flex";
+        this.refreshButtonTarget.style.display = "flex"; 
       }, timerDuration);
     }
 
@@ -37,7 +41,7 @@ export default class extends Controller {
 
   setSearchParams() {
     let searchParams = new URLSearchParams()
-    searchParams.set("age_hours", 1)
+    searchParams.set("age_hours", 12)
     this.history.forEach((id) => {
       searchParams.append("history[]", id)
     });
