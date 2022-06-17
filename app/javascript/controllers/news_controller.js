@@ -3,7 +3,7 @@ const localSessionKey = "history.history"
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "newsContainer", "readMoreButton", "refreshButton", "articleTitle", "articleBody", "loader", "allRead" ]
+  static targets = [ "newsContainer", "readMoreButton", "refreshButton", "subscribeButton", "articleTitle", "articleBody", "loader", "allRead" ]
   
   async refresh(event) {
     event.preventDefault()
@@ -20,8 +20,9 @@ export default class extends Controller {
       setTimeout(() => {
         this.loaderTarget.classList.add('inactive')
         this.allReadTarget.classList.remove('inactive')
-        this.readMoreButtonTarget.style.pointerEvents = "none";
-        this.refreshButtonTarget.style.pointerEvents = "none";
+        this.readMoreButtonTarget.style.display = "none";
+        this.refreshButtonTarget.style.display = "none";
+        this.subscribeButtonTarget.style.display = 'flex'
       }, timerDuration);      
     } else {
       let article = data["articles"][data["articles"].length * Math.random() | 0]
@@ -36,7 +37,7 @@ export default class extends Controller {
 
   setSearchParams() {
     let searchParams = new URLSearchParams()
-    searchParams.set("age_hours", 12)
+    searchParams.set("age_hours", 1)
     this.history.forEach((id) => {
       searchParams.append("history[]", id)
     });
@@ -64,5 +65,9 @@ export default class extends Controller {
   connect() {
     this.history = [parseInt(this.newsContainerTarget.dataset.id)]
     window.sessionStorage.setItem(localSessionKey, JSON.stringify(this.history))
+  }
+
+  initialize() {
+    this.subscribeButtonTarget.style.display = 'none'
   }
 }

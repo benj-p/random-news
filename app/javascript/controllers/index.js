@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import NewsController from "./news_controller.js"
 application.register("news", NewsController)
+
+import SubscribeController from "./subscribe_controller.js"
+application.register("subscribe", SubscribeController)

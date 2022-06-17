@@ -1,16 +1,18 @@
 <h1 class="home-header">What's new today?</h1>
 
-<div data-controller="news">
+<div data-controller="news subscribe">
   <div class="news-container" data-news-target="newsContainer" data-id=<%= @article.id %>>
     <h2 class="article-title" data-news-target="articleTitle"><%= @article.title %></h2>
     <div data-news-target="articleBody"><%= @article.short_body.html_safe %></div>
 
     <div class="message-container inactive" data-news-target="allRead">
-      <h3>Well done</h3>
+      <h3>Well done 👏</h3>
       <p>You've caught up on all of our most recent news!</p>
       <p>
-        Want to help develop this web app ?<br/>
-        Check our <%= link_to '<span class="left-icon-text no-underline"><i class="fa-brands fa-github"></i>Github repo</span>'.html_safe, 'https://github.com/benj-p/random-news' %>
+        Do you have ideas to improve this app? Or do you want to help out with some items on our roadmap?<br/>
+        <%= link_to 'https://github.com/benj-p/random-news' do %>
+          <span class="left-icon-text no-underline"><i class="fa-brands fa-github"></i>Github repo</span>
+        <% end %>
       </p>
     </div>
 
@@ -34,5 +36,15 @@
       <%= image_tag 'icons/shuffle.png' %>
       Anything else?
     <% end %>
-  </div>
-</div>
+    <div class="button-primary" data-news-target="subscribeButton" data-action="click->subscribe#expand">
+      <div>
+        <i class="fa-solid fa-envelope fa-lg"></i>
+        Subscribe for more
+      </div>
+      <div id="subscribe-form-container" class="collapsed" data-subscribe-target="form">
+        <div style="width: 100%;">
+          <input type="email" name="email" id="email_input" placeholder="Your email address">
+          <input type="submit" value="Subscribe !" class="button-orange">
+        </div>
+      </div>
+    </div>

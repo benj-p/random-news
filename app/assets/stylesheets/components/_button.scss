@@ -1,8 +1,10 @@
 .button-primary {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   background: $light-yellow;
+  min-height: 72px;
   border: 2px solid $black;
   border-radius: 16px;
   padding: 16px 32px;
@@ -12,10 +14,13 @@
   text-decoration: none;
   color: $black;
 
+  i, img {
+    margin-right: 16px;
+  }
+
   img {
     width: 36px;
     height: 36px;
-    margin-right: 16px;
   }
 
  &:hover {
@@ -26,4 +31,20 @@
  &:focus {
   box-shadow: none;
  }
+}
+
+.button-orange {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: $orange;
+  border: 1px solid $black;
+  border-radius: 16px;
+  padding: 16px 32px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-decoration: none;
+  color: $black;
 }
