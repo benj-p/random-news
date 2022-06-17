@@ -5,7 +5,16 @@
     <h2 class="article-title" data-news-target="articleTitle"><%= @article.title %></h2>
     <div data-news-target="articleBody"><%= @article.short_body.html_safe %></div>
 
-    <div class="loader inactive" data-news-target="loader">
+    <div class="message-container inactive" data-news-target="allRead">
+      <h3>Well done</h3>
+      <p>You've caught up on all of our most recent news!</p>
+      <p>
+        Want to help develop this web app ?<br/>
+        Check our <%= link_to '<span class="left-icon-text no-underline"><i class="fa-brands fa-github"></i>Github repo</span>'.html_safe, 'https://github.com/benj-p/random-news' %>
+      </p>
+    </div>
+
+    <div class="message-container inactive" data-news-target="loader">
       <div class="loader-dots">
         <div class="spinner-grow text-warning" role="status"></div>
         <div class="spinner-grow text-warning" role="status"></div>

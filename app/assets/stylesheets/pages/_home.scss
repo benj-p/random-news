@@ -13,19 +13,19 @@
   }
 }
 
-.loader {
+.message-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 60px;
   margin-bottom: 60px;
 
   .loader-dots {
     display: flex;
     justify-content: space-between;
     width: 140px;
-    margin-top: 60px;
     margin-bottom: 40px;
   }
 
