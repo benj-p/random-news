@@ -3,6 +3,7 @@
 <div data-controller="news subscribe">
   <div class="news-container" data-news-target="newsContainer" data-id=<%= @article.id %>>
     <h2 class="article-title" data-news-target="articleTitle"><%= @article.title %></h2>
+    <span class="news-date" data-date="" data-news-target="articleDate"><%= published_date(@article) %></span>
     <div data-news-target="articleBody"><%= @article.short_body.html_safe %></div>
 
     <div class="message-container inactive" data-news-target="allRead">
@@ -37,12 +38,12 @@
       <%= image_tag 'icons/shuffle.png' %>
       Anything else?
     <% end %>
-    <div class="button-primary" data-news-target="subscribeButton" data-action="click->subscribe#expand">
-      <div>
+    <div class="button-primary" data-news-target="subscribeButton">
+      <button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <i class="fa-solid fa-envelope fa-lg"></i>
         Subscribe for more
-      </div>
-      <div id="subscribe-form-container" class="collapsed" data-subscribe-target="form">
+      </button>
+      <div id="collapseExample" class="collapse">
         <div style="width: 100%;">
           <input type="email" name="email" id="email_input" placeholder="Your email address">
           <input type="submit" value="Subscribe !" class="button-orange">

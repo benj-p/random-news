@@ -3,6 +3,6 @@ class Article < ApplicationRecord
   validates :article_source_id, uniqueness: { scope: :source, message: "article already exists" }
 
   def short_body
-    body.truncate(2000, separator: /<\/p>/)
+    body.truncate(800, separator: /<\/p>/)
   end
 end

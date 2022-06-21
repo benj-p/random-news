@@ -3,13 +3,14 @@ const localSessionKey = "history.history"
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = [ "newsContainer", "readMoreButton", "refreshButton", "subscribeButton", "articleTitle", "articleBody", "loader", "allRead" ]
+  static targets = [ "newsContainer", "readMoreButton", "refreshButton", "subscribeButton", "articleTitle", "articleBody", "articleDate", "loader", "allRead" ]
   
   async refresh(event) {
     event.preventDefault()
     window.scrollTo({ top: 0, behavior: 'smooth' })
     this.loaderTarget.classList.remove('inactive')
     this.articleTitleTarget.innerHTML = null
+    this.articleDateTarget.innerHTML = null
     this.articleBodyTarget.innerHTML = null 
     this.readMoreButtonTarget.style.display = "none";
     this.refreshButtonTarget.style.display = "none"; 
@@ -62,8 +63,15 @@ export default class extends Controller {
   updateContent(article) {
     this.articleTitleTarget.innerHTML = article["title"]
     this.articleBodyTarget.innerHTML = article["short_body"]
+    this.articleDateTarget.innerHTML = this.convertPublishedDate(article["published_date"])
     this.newsContainerTarget.dataset.id = article["id"]
     this.readMoreButtonTarget.href = article["url"]
+  }
+
+  convertPublishedDate(dateString) {
+    let options = { day: 'numeric', month: 'long', hour: 'numeric', minute: 'numeric' };
+    let date = new Date(dateString)
+    return date.toLocaleDateString("en-US", options)
   }
 
   connect() {

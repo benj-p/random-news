@@ -21,4 +21,10 @@ body {
   background: $light-yellow;
   border: 2px solid $black;
   border-radius: 16px;
+
+  .news-date {
+    margin-bottom: 12px;
+    font-style: italic;
+    font-size: 0.9em;
+  }
 }
