@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @article = Article.where('published_date > ?', 24.hours.ago).order(published_date: :desc).first
+    @newsletter_subscription = NewsletterSubscription.new
   end
 end

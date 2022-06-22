@@ -44,9 +44,15 @@
         Subscribe for more
       </a>
       <div id="collapseExample" class="collapse mt-3" style="width: 100%;">
-        <input type="email" name="email" id="email_input" placeholder="Your email address">
-        <input type="submit" value="Subscribe !" class="button-orange">
+        <%= simple_form_for @newsletter_subscription, url: newsletter_subscriptions_path do |f| %>
+          <%= f.input :email, label: false, placeholder: "Your email address" %>
+          <div id="subscription-errors" class="mb-3"></div>
+          <%= f.button :submit, class: "button-orange", value: "Subscribe !" %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<%# <input type="email" name="email" placeholder="Your email address">
+<input type="submit" value="Subscribe !" class="button-orange"> %>

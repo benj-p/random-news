@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "subscription-errors" do %>
+  <div id="subscription-errors" class="mb-3">
+    <% @newsletter_subscription.errors.full_messages.each do |error| %>
+      <%= error %>
+    <% end %>
+  </div>
+<% end %>

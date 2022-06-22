@@ -16,3 +16,11 @@
     border: 1px solid $black;
   }
 }
+
+#subscription-errors {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.8em;
+  text-align: center;
+  color: red;
+}
