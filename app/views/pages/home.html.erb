@@ -38,16 +38,14 @@
       <%= image_tag 'icons/shuffle.png' %>
       Anything else?
     <% end %>
-    <div class="button-primary" data-news-target="subscribeButton">
-      <button type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <div id="subscribe-form-container" class="button-primary flex-column" data-news-target="subscribeButton">
+      <a class="no-underline" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         <i class="fa-solid fa-envelope fa-lg"></i>
         Subscribe for more
-      </button>
-      <div id="collapseExample" class="collapse">
-        <div style="width: 100%;">
-          <input type="email" name="email" id="email_input" placeholder="Your email address">
-          <input type="submit" value="Subscribe !" class="button-orange">
-        </div>
+      </a>
+      <div id="collapseExample" class="collapse mt-3" style="width: 100%;">
+        <input type="email" name="email" id="email_input" placeholder="Your email address">
+        <input type="submit" value="Subscribe !" class="button-orange">
       </div>
     </div>
   </div>

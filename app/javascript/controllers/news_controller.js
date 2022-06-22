@@ -42,7 +42,7 @@ export default class extends Controller {
 
   setSearchParams() {
     let searchParams = new URLSearchParams()
-    searchParams.set("age_hours", 12)
+    searchParams.set("age_hours", 6)
     this.history.forEach((id) => {
       searchParams.append("history[]", id)
     });
