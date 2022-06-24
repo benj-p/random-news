@@ -1,6 +1,6 @@
 <h1 class="home-header">What's new today?</h1>
 
-<div data-controller="news subscribe">
+<div data-controller="news">
   <div class="news-container" data-news-target="newsContainer" data-id=<%= @article.id %>>
     <h2 class="article-title" data-news-target="articleTitle"><%= @article.title %></h2>
     <span class="news-date" data-date="" data-news-target="articleDate"><%= published_date(@article) %></span>
@@ -39,20 +39,17 @@
       Anything else?
     <% end %>
     <div id="subscribe-form-container" class="button-primary flex-column" data-news-target="subscribeButton">
-      <a class="no-underline" data-bs-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <a class="no-underline" data-bs-toggle="collapse" href="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
         <i class="fa-solid fa-envelope fa-lg"></i>
         Subscribe for more
       </a>
-      <div id="collapseExample" class="collapse mt-3" style="width: 100%;">
+      <div data-controller="subscribe" id="collapseForm" class="collapse mt-3" style="width: 100%;">
         <%= simple_form_for @newsletter_subscription, url: newsletter_subscriptions_path do |f| %>
-          <%= f.input :email, label: false, placeholder: "Your email address" %>
-          <div id="subscription-errors" class="mb-3"></div>
+          <%= f.input :email, label: false, placeholder: "Your email address", input_html: { data: { subscribe_target: "input", action: "input->subscribe#clearErrors" } } %>
+          <%= render 'newsletter_subscriptions/subscription-errors' %>
           <%= f.button :submit, class: "button-orange", value: "Subscribe !" %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<%# <input type="email" name="email" placeholder="Your email address">
-<input type="submit" value="Subscribe !" class="button-orange"> %>

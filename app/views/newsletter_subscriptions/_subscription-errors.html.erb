@@ -1,0 +1,7 @@
+<div id="subscription-errors" class="mb-3" data-subscribe-target="errors">
+  <ul>
+    <% @newsletter_subscription.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+</div>

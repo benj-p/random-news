@@ -13,7 +13,7 @@ export default class extends Controller {
     this.articleDateTarget.innerHTML = null
     this.articleBodyTarget.innerHTML = null 
     this.readMoreButtonTarget.style.display = "none";
-    this.refreshButtonTarget.style.display = "none"; 
+    this.refreshButtonTarget.style.display = "none";
 
     let searchParams = this.setSearchParams()
     const data = await fetch(`/articles?${searchParams}`).then((response) => response.json())
@@ -37,7 +37,6 @@ export default class extends Controller {
         this.refreshButtonTarget.style.display = "flex"; 
       }, timerDuration);
     }
-
   }
 
   setSearchParams() {
